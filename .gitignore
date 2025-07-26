@@ -1,0 +1,39 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules
+node_modules/
+
+# Build directories
+dist/
+dist-ssr/
+
+# Local environment overrides
+*.local
+
+# Environment variables
+.env
+.env.*    # (includes .env.production, .env.development etc)
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+
+# Windows / VS related
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Optional: OS trash files
+Thumbs.db
+

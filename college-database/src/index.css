@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui" {
+   themes: ["light", "dark"]
+}
+
+
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+
+
+
+*{
+  font-family: "Outfit", sans-serif;
+  scroll-behavior: smooth;
+}
+body {
+  overflow: auto;
+  
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.slick-slide >div{
+   margin-right: 20px;
+}
+.slick-prev::before{
+    background-color: black;
+    padding: 8px;
+    margin-left:-50px;
+    border-radius: 100%;
+}
+
+.slick-next::before{
+    background-color: black;
+    padding: 8px;
+   
+    border-radius: 100%;
+    
+}
+@media (max-width: 768px) {
+  /* CSS rules for screens <= 768px (tablets and smaller) */
+  
+  .slick-slide >div{
+    margin-right: 20px;
+  }
+ .slick-prev::before{
+     background-color: black;
+     padding: 8px;
+     margin-left:-10px;
+     border-radius: 100%;
+ }
+ 
+ .slick-next::before{
+     background-color: black;
+     padding: 8px;
+    
+     border-radius: 100%;
+     
+}
+#dept{
+ 
+   .slick-slide >div{
+   margin-right:-20px;
+}
+.slick-next::before{
+  background-color: black;
+  border-radius: 100%;
+  margin-left: -10px;
+}
+}
+}
+.nav-link {
+      @apply relative cursor-pointer text-[16px] font-medium transition-colors duration-300 hover:text-red-600 
+      after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] 
+      after:bg-red-600 after:scale-x-0 after:origin-bottom after:transition-transform after:duration-300 
+      hover:after:scale-x-100;
+  }
+
+
+  .note-text {
+    display: inline-block;
+    padding-left: -100%;
+    animation: scroll-left-to-right 16s linear infinite;
+    font-weight: bold;
+    font-size: 1rem;
+    
+    
+  }
+  
+  /* Animation keyframes */
+  @keyframes scroll-right-to-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+  #text-effect{
+  
+    font-weight: bold;
+    white-space: nowrap; 
+    overflow: hidden; /* Hide the text that is not visible */
+    border-right: 3px solid #f1f1f1; /* Create the blinking cursor effect */
+    width: 0; 
+    animation: typing 4s steps(30, end), blink 0.7s step-end infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+  
+    
+    
+  }
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 44%;
+    }
+  }
+  
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: #333;
+    }
+  }
+  
+  #card::-webkit-scrollbar{
+    display: none;
+  }
+  
+  
+  @media (max-width: 640px) {
+    #typing-text {
+      animation: typing 3s steps(30, end), blink 1s step-end infinite;
+    }
+  
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 85%; /* mobile width */
+      }
+    }
+  }
+
+  #hey{
+    outline-style: none;
+  }
+
+  .scrollbar::-webkit-scrollbar{
+    display: none;
+   
+  }
+
+
