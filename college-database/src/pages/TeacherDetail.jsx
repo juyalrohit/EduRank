@@ -67,15 +67,15 @@ const data = [
 
 
   return (
-    <div className='w-full  pb-5 mt-18'>
-        <div onClick={goBack} className='fixed sm:top-24 sm:right-4 right-6 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
+    <div className='w-full  pb-5 sm:mt-22'>
+        <div onClick={goBack} className='fixed sm:top-24 top-14 sm:right-4 right-3 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
             <i class="ri-close-large-line"></i>
         </div>
 
         <button  onClick={()=>naviGate(`/RateTeacher/${Id}`)} className="btn fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white font-bold sm:py-6 py-2 sm:px-5 px-3 rounded-full shadow-lg transition duration-300 z-99">Give Review ⭐</button>
          <div className='w-full h-72 z-59 relative'>
-            <div className='text-xl text-white absolute top-30 pl-10 z-50 '>
-                <h1 className='text-2xl tracking-wider font-bold uppercase'> Department of {teacher.department.name}</h1>
+            <div className='sm:text-xl text-[1rem] text-white absolute top-30 sm:pl-10 pl-4 z-50 '>
+                <h1 className='sm:text-2xl text-xl  tracking-wider font-bold uppercase'> Department of {teacher.department.name.replace(/Department/gi, '').trim() }</h1>
                 <span>{teacher.position}</span>
                 <span> {teacher.name} </span>
                 <span>student feedbacks</span>

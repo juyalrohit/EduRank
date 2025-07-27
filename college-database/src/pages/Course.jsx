@@ -1,96 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Foter from '../component/Foter'
+import { useNavigate } from 'react-router-dom';
+
+
+ const kumaunCourses = [
+  "B.Sc ",
+  "Bachelor of Computer Applications [BCA]",
+  "B.A.",
+  "M.Sc",
+  "LLB",
+  "M.Com",
+  "M.A",
+  "B.B.A",
+  "L.L.M",
+  "Bachelor of Business Administration [BBA]",
+];
+
 
 const Course = () => {
+
+   const naviGate = useNavigate();
   return (
-     <>
-      <div class="container mx-auto p-6 mt-16">
-    <h2 class="text-3xl font-bold text-center mb-6">Courses Offered</h2>
+      <div className='w-full h-screen mt-20 bg-neutral-50 '>
 
-    {/* <!-- PG Courses Table --> */}
-    <div class="mb-8">
-        <h3 class="text-2xl font-semibold mb-4">🎓 Postgraduate Courses</h3>
-        <div class="overflow-x-auto">
-            <table class="w-full border-collapse border border-gray-300">
-                <thead class="bg-gray-200">
-                    <tr>
-                        <th class="border border-gray-300 p-3">Course</th>
-                        <th class="border border-gray-300 p-3">Fees</th>
-                        <th class="border border-gray-300 p-3">Eligibility</th>
-                        <th class="border border-gray-300 p-3">Application Deadline</th>
-                        <th class="border border-gray-300 p-3">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <td class="border border-gray-300 p-3">MBA</td>
-                        <td class="border border-gray-300 p-3">₹2,00,000/year</td>
-                        <td class="border border-gray-300 p-3">Graduate with 50% marks</td>
-                        <td class="border border-gray-300 p-3">30th June</td>
-                        <td class="border border-gray-300 p-3">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Apply Now</button>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="border border-gray-300 p-3">MSc</td>
-                        <td class="border border-gray-300 p-3">₹1,50,000/year</td>
-                        <td class="border border-gray-300 p-3">BSc with 50% marks</td>
-                        <td class="border border-gray-300 p-3">25th July</td>
-                        <td class="border border-gray-300 p-3">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Apply Now</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+     
+        <div className="w-full bg-opacity-50  z-50  flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl p-6 w-[90%] max-w-xl shadow-xl">
+            <h2 className="text-xl font-semibold mb-4 text-center text-gray-800">
+              📚 Courses Offered at Kumaun University
+            </h2>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-700">
+              {kumaunCourses.map((course, idx) => (
+                <li
+                  key={idx}
+                  className="bg-gray-100 hover:bg-gray-200 rounded-xl p-3 shadow-sm"
+                >
+                  🎓 {course}
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() => naviGate(-1)}
+              className="mt-6 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-xl"
+            >
+              Close
+            </button>
+          </div>
         </div>
-    </div>
-
-    {/* <!-- UG Courses Table --> */}
-    <div>
-        <h3 class="text-2xl font-semibold mb-4">🎓 Undergraduate Courses</h3>
-        <div class="overflow-x-auto">
-            <table class="w-full border-collapse border border-gray-300">
-                <thead class="bg-gray-200">
-                    <tr>
-                        <th class="border border-gray-300 p-3">Course</th>
-                        <th class="border border-gray-300 p-3">Fees</th>
-                        <th class="border border-gray-300 p-3">Eligibility</th>
-                        <th class="border border-gray-300 p-3">Application Deadline</th>
-                        <th class="border border-gray-300 p-3">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <td class="border border-gray-300 p-3">BCA</td>
-                        <td class="border border-gray-300 p-3">₹1,00,000/year</td>
-                        <td class="border border-gray-300 p-3">12th with 50% marks</td>
-                        <td class="border border-gray-300 p-3">15th June</td>
-                        <td class="border border-gray-300 p-3">
-                            <button class="bg-green-500 text-white px-4 py-2 rounded-lg">Apply Now</button>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td class="border border-gray-300 p-3">B.Com</td>
-                        <td class="border border-gray-300 p-3">₹90,000/year</td>
-                        <td class="border border-gray-300 p-3">12th with Commerce</td>
-                        <td class="border border-gray-300 p-3">10th July</td>
-                        <td class="border border-gray-300 p-3">
-                            <button class="bg-green-500 text-white px-4 py-2 rounded-lg">Apply Now</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
 
     <div>
         <Foter/>
     </div>
 
-     </>
-  )
+      
+    </div>
+     )
 }
 
 export default Course
