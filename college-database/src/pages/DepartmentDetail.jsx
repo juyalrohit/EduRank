@@ -45,7 +45,7 @@ const DepartmentDetail = () => {
 
 
   // Get the data for the current department
-  console.log({department});
+  
 
   
 const getColorBasedOnRating = (rating) => {
@@ -54,6 +54,13 @@ const getColorBasedOnRating = (rating) => {
   if (rating >= 4) return "#f39c12";   // Orange
   return "#e74c3c";                    // Red
 };
+
+const getAvgRating = (reviews)=>{
+  const avgRating = reviews.reduce((sum, r) => sum + Number(r.overallRating), 0) / reviews.length;
+  const roundedRating = Math.round(avgRating*10)/10;
+  console.log("Avg Rating:", roundedRating);
+  return roundedRating;
+}
 
 
   const data = [
@@ -202,6 +209,7 @@ const type = "department"
         <div className=" sm:p-10 px-2 mb-7 border-b-2 ml-1 ">
         <Slider {...settings}>
                 {department.teacher.map((faculty, index) => (
+               
 
                     <div key={index} id='teacher' className=" sm:w-full  bg-white shadow-lg rounded-xl border border-b-1 border-gray-400 ">
                          <div className='w-full h-60 bg-blue-700 backdrop-blur  rounded-t-2xl flex justify-center items-center'>
@@ -212,7 +220,7 @@ const type = "department"
                   <div className='p-6'>
                   <h3 className="text-xl font-semibold text-gray-800">{faculty.name}</h3>
                         <p className="text-gray-600">{faculty.position}</p>
-                        <p className="mt-2 text-gray-700"><strong>Ratings :</strong> <RatingBadge rating={faculty.avgRating} /></p>
+                        <p className="mt-2 text-gray-700"><strong>Ratings :</strong> <RatingBadge rating={Number.isNaN(getAvgRating(faculty.ratings))? 0 : getAvgRating(faculty.ratings)} /></p>
                         <p className="mt-2 text-gray-700"><strong>Email :</strong> <a href={`mailto:${faculty.email}`} className="text-blue-500 ">{faculty.email}</a></p>
                         <p className="mt-2 text-gray-700"><strong>Contact :</strong> {faculty.phone}</p>
                         <div className="mt-4 flex justify-between items-center">

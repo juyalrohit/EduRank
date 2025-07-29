@@ -64,6 +64,7 @@ router.get('/get-department/:id', async (req, res) => {
               populate : {path : 'ratings'}
             }) 
            .populate({path:'ratings', populate :{path:'user'}}); // reviews dikh
+           
        if (!department) return res.status(404).send('Department not found');
        const currentYear = new Date().getFullYear();
        const yearsOfDevelopment = currentYear - department.foundedYear;

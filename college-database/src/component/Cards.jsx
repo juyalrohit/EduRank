@@ -136,7 +136,7 @@ if(departments){
                   <p className="text-sm text-gray-600 mt-2">Courses  : { card.course.length==3 ?( <>{card.course.join(',')}</>) : <ReadMore>{card.course.join(",")}</ReadMore>}</p>
                  
         
-                  <p className="text-sm text-gray-500 font-medium mt-2 sm:mb-0 mb-12">Ratings : <RatingBadge rating={getAvgRating(card.ratings)}/></p>
+                  <p className="text-sm text-gray-500 font-medium mt-2 sm:mb-0 mb-12">Ratings : <RatingBadge rating={Number.isNaN(getAvgRating(card.ratings))? 0 : getAvgRating(card.ratings)}/></p>
                     
                   <Link
                     to={`/department/${card._id}`}
