@@ -9,6 +9,7 @@ const departmentRouter  = require('./routes/departmentRouter');
 const reviewRouter = require('./routes/reviewRouter');
 const searchdataRouter = require('./routes/searchdataRouter');
 const replyRouter = require('./routes/replyRouter')
+const contactRouter = require('./routes/contactRouter')
 const cookieParser = require('cookie-parser');
 
 
@@ -26,6 +27,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cookieParser());
 
+
   
 app.use(cors({origin: 'http://localhost:5173',credentials:true}))
 
@@ -34,6 +36,7 @@ app.use('/teacher',teacherRouter);
 app.use('/department',departmentRouter);
 app.use('/review',reviewRouter);
 app.use('/searchdata', searchdataRouter);
+app.use('/contact',contactRouter)
 
 app.use('/reply',replyRouter)
 

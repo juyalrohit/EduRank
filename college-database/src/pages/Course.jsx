@@ -21,12 +21,12 @@ const Course = () => {
 
    const naviGate = useNavigate();
   return (
-      <div className='w-full h-screen mt-20 bg-neutral-50 '>
+      <div className='w-full h-screen mt-22 bg-neutral-50 '>
 
      
         <div className="w-full bg-opacity-50  z-50  flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl p-6 w-[90%] max-w-xl shadow-xl">
-            <h2 className="text-xl font-semibold mb-4 text-center text-gray-800">
+            <h2 className="text-2xl font-semibold mb-4 text-center text-red-800 uppercase ">
               📚 Courses Offered at Kumaun University
             </h2>
 

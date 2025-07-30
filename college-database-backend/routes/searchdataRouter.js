@@ -22,9 +22,9 @@ router.get('/teacher-department', async(req,res)=>{
 
 router.post('/send-email',async(req,res)=>{
     const {name,senderEmail,selectedEmail,message,subject} = req.body;
-    console.log("heloo")
+   
     
-    if(!name || !senderEmail || !selectedEmail || !message || !subject ||9){
+    if(!name || !senderEmail || !selectedEmail || !message || !subject ){
         return res.json({success:false,message:"details missing!"});
     }
 
