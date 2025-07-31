@@ -13,14 +13,14 @@ const Contact = () => {
   
   const [form, setform] = useState({
     name: '',
-    email: '',
+    senderMail: '',
     message: ''
   });
 
   const handleSubmit = async(e)=>{
       e.preventDefault();
       setLoading(true)
-      if(!form.name || !form.email || !form.message){
+      if(!form.name || !form.senderMail || !form.message){
         toast.error("Please fill all the fields!");
         return;
       }
@@ -34,7 +34,7 @@ const Contact = () => {
         
         if (res.data.success) {
         toast.success(res.data.message);
-        setform({ name: '', email: '', message: '' });
+        setform({ name: '', senderMail: '', message: '' });
        }
         
       } catch (error) {
@@ -69,7 +69,7 @@ const Contact = () => {
                     <label class="block text-left  font-semibold">Your Email</label>
                     <input type="email" placeholder="Enter your email"
                      className=" w-full mt-1 p-3  0 rounded-lg  outline-none"
-                     onChange={(e)=>(setform({...form,email:e.target.value}))} value={form.email}
+                     onChange={(e)=>(setform({...form,senderMail:e.target.value}))} value={form.senderMail}
                      />
                   </div>
 

@@ -12,6 +12,7 @@ const SendEmail = () => {
     const {departments,isAuthenticated} = useAuth();
     const [senderEmail, setSenderEmail] = useState("");
     const [subject,setSubject] = useState("");
+    const [loading, setloading] = useState(false);
     
     // List of departments and their emails
     const [departmentEmail, setdepartmentEmail] = useState([]);
@@ -23,11 +24,14 @@ const SendEmail = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
+    setloading(true)
     if(!isAuthenticated){
         return toast.info("Login first!")
     }
     
-    console.log("heloo",selectedEmail)
+    if(!name || !selectedEmail || !message || !senderEmail || !subject){
+        return toast.error("Please fill all the fields!");
+    }
     axios.defaults.withCredentials = true;
     try {
 
@@ -35,6 +39,12 @@ const SendEmail = () => {
 
         if(data.success){
             toast.success(data.message)
+            setSelectedEmail('');
+            setSenderEmail('');
+            setSubject('');
+            setmessage('');
+            setname('');
+            setType('department');
         }
         else{
             toast.error(data.message)
@@ -45,7 +55,9 @@ const SendEmail = () => {
         toast.error(error.message)
         
     }
-
+    finally{
+        setloading(false);
+    }
   }
 
   
@@ -177,7 +189,7 @@ const SendEmail = () => {
                     type="submit"
                     className="btn w-full bg-gradient-to-r from-red-400 to-red-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
                 >
-                    Send Email
+                   {loading ? "Sending..." : "Send Email" }
                 </button>
             </form>
         </div>
