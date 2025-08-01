@@ -35,7 +35,7 @@ const SendEmail = () => {
     axios.defaults.withCredentials = true;
     try {
 
-        const {data} = await axios.post('http://localhost:3000/searchdata/send-email',{name,selectedEmail,message,senderEmail,subject});
+        const {data} = await axios.post('http://localhost:3000/contact/contact-faculty',{name,selectedEmail,message,senderEmail,subject});
 
         if(data.success){
             toast.success(data.message)
@@ -187,6 +187,7 @@ const SendEmail = () => {
 
                 <button
                     type="submit"
+                    loading={loading}
                     className="btn w-full bg-gradient-to-r from-red-400 to-red-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
                 >
                    {loading ? "Sending..." : "Send Email" }

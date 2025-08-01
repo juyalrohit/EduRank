@@ -4,7 +4,7 @@ const Transpoter = require('../config/nodemailer-transproter')
 const router = express.Router();
 
 
- router.post("/send-message", async (req, res) => {
+ router.post("/contact-team", async (req, res) => {
     const {name,senderMail,message} = req.body;
 
    if (!senderMail || !name || !message) {
@@ -36,5 +36,44 @@ const router = express.Router();
     }
  }
 );
+
+
+router.post('/contact-faculty',async(req,res)=>{
+    const {name,senderEmail,selectedEmail,message,subject} = req.body;
+   
+    
+    if(!name || !senderEmail || !selectedEmail || !message || !subject ){
+        return res.json({success:false,message:"details missing!"});
+    }
+
+
+    try {
+
+        const mailOption = {
+            from:process.env.SENDER_EMAIL,
+            to:selectedEmail,
+            subject:subject,
+            html: `
+        <h3>Message from Student</h3>
+        <p><strong>Sender's Name:</strong> ${name}</p>
+        <p><strong>Sender's Email:</strong> ${senderEmail}</p>
+        <p><strong>Message:</strong><br/>${message}</p>
+    `
+    }
+
+    await Transpoter.sendMail(mailOption)
+
+    res.json({success:true,message:"message sent succefully!"})
+
+
+
+        
+    } catch (error) {
+
+        res.json({success:false,message:error.message});
+        
+    }
+})
+
 
 module.exports  = router;

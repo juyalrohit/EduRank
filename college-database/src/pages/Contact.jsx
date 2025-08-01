@@ -30,7 +30,7 @@ const Contact = () => {
       }
 
       try {
-        const res = await axios.post('http://localhost:3000/contact/send-message',form);
+        const res = await axios.post('http://localhost:3000/contact/contact-team',form);
         
         if (res.data.success) {
         toast.success(res.data.message);
@@ -82,7 +82,9 @@ const Contact = () => {
                   </div>
 
             
-                  <button type="submit" class="btn w-full bg-gradient-to-r from-red-400 to-red-700 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition duration-300">
+                  <button type="submit"
+                   disabled={loading}
+                   className="btn w-full bg-gradient-to-r from-red-400 to-red-700 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition duration-300">
                    {loading ? "Sending..." :"Send Message"}
                   </button>
                 </form>
