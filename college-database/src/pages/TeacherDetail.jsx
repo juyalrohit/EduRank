@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import RatingBadge from '../feature/RatingBadge';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import College from '../assets/maxresdefault.jpg'
 
 
 const TeacherDetail = () => {
@@ -81,7 +82,7 @@ const data = [
                 <span>student feedbacks</span>
             </div>
      
-            <img className=' w-full h-full blur-[3px]  ' src='https://i.ytimg.com/vi/WXR-gwZhAQg/maxresdefault.jpg' alt="Computer" />
+            <img className=' w-full h-full blur-[3px]  ' src={College}alt="Computer" />
       </div>
 
       <div className='w-[80%] mx-auto mt-10 sm:flex  gap-44 space-y-8 '>

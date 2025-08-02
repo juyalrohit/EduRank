@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from '../context/AuthContext';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import ReadMore from '../feature/ReadMore'
+import College from '../assets/maxresdefault.jpg'
 
 
 
@@ -135,7 +136,7 @@ const type = "department"
         <span> {yearsOfDevelopment} years of Development</span>
     </div>
      
-      <img className=' w-full h-full blur-[3px] border-1 border-b-gray-400 ' src='https://i.ytimg.com/vi/WXR-gwZhAQg/maxresdefault.jpg' alt="Computer" />
+      <img className=' w-full h-full blur-[3px] border-1 border-b-gray-400 ' src={College} alt="Computer" />
       </div>
     
      
