@@ -1,6 +1,6 @@
 # 🎓 College Database Website (WIP)
 
-This is a MERN stack-based project to manage and rate college departments and teachers. The project is currently under development.
+EduRank is personal college review rating system, where student can view teacher and department ratings and aslo can give review to them. The project is currently under development.
 
 ## 🚀 Features (Planned & In Progress)
 
@@ -12,7 +12,9 @@ This is a MERN stack-based project to manage and rate college departments and te
 - **Frontend:** React.js (with Vite), Tailwind CSS
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB with Mongoose
-- **Auth:** JWT 
+- **Auth:** JWT
+
+
 
 ## 📦 Setup
 
