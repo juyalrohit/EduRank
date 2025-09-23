@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 const AuthContext = createContext();
 
 // Provider
+
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [departments, setdepartments] = useState([]);
