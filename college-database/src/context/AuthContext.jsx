@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [departments, setdepartments] = useState([]);
   const [teachers, setteachers] = useState([]);
-  const [loading,setloading] = useState(true);
   const [userData, setUserData] = useState("")
 
   const backendURL = import.meta.env.VITE_BACKEND_URL;
