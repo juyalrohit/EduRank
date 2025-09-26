@@ -28,12 +28,19 @@ import TeacherDetail from './pages/TeacherDetail';
 
 import ResetPassword from './pages/ResetPassword';
 
+import {motion} from 'framer-motion';
+
 
 
 function App() {  
 
 return (
-  <div className='w-screen min-h-screen '>
+  <motion.div
+   initial={{opacity:0}}
+   animate={{opacity:1}}
+   transition={{duration:0.75,ease:'easeInOut'}}
+
+   className='w-screen min-h-screen '>
     <AuthProvider> {/* ✅ Pure App ko Wrap Kar Raha Hai */}
       <Router>
          <Header />
@@ -55,7 +62,7 @@ return (
         </Routes>
       </Router>
     </AuthProvider>
-  </div>
+  </motion.div>
   
    
 )
