@@ -10,7 +10,7 @@ const Foter = () => {
   <div className='w-full min-h-[100vh] sm:min-h-[46vh] bg-slate-900 relative sm:mb-0'>
   <div className='w-full flex  items-center justify-center h-full flex-col gap-4 text-white  '>
             <img className='sm:w-80 w-72 sm:h-45 h-35 sm:mt-5  mt-46  sm:ml-0 ml-24' src={logo} alt="" />
-            <p className='tracking-wider sm:block hidden -mt-10'>Your Guide to Colleges, Departments & Teacher</p>
+            <p className='tracking-wider sm:block hidden -mt-10'>Your Guide to College, Departments & Teacher</p>
             <p></p>
         </div>
 

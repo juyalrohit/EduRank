@@ -59,8 +59,8 @@ const Cards = () => {
         fetchAllDepartments();
       }, []);
       
-      if (loading) return <p>Loading...</p>;  // ✅ Show loading message while fetching
-      if (!departments) return <p>No departments found</p>;  // ✅ Handle empty response
+      if (loading) return <p>Loading...</p>;
+      if (!departments) return <p>No departments found</p>; 
       
       console.log(departments);
       
