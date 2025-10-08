@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const Search = () => {
   const [content, setContent] = useState("");
   const [results,setResult] = useState("");
@@ -21,7 +22,7 @@ const Search = () => {
   useEffect(()=>{
     const getAllData = async()=>{
       try{
-        const res = await axios.get('http://localhost:3000/searchdata/teacher-department');
+        const res = await axios.get(backendURL + '/searchdata/teacher-department');
         const {teachers, departments} = res.data;
         setteachers(teachers);
         setdepartments(departments);

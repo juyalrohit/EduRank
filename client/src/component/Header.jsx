@@ -13,15 +13,16 @@ import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const { isAuthenticated, setIsAuthenticated ,backendURL} = useAuth();
   const [isOpen, setisOpen] = useState(false)
+
 
 
   
   
   const handleLogOut = async () => {
     try {
-      await axios.get('http://localhost:3000/user/logout-user', { withCredentials: true });
+      await axios.get(backendURL + '/user/logout-user', { withCredentials: true });
       setIsAuthenticated(false);
       navigate('/login');
     } catch (error) {

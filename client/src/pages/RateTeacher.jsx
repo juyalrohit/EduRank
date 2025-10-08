@@ -17,11 +17,10 @@ const RateTeacher = () => {
   const [comment,setComment] = useState();
 
   const { Id: targetId} = useParams(); // Get teacher ID from URL params
-  const token = localStorage.getItem('token'); 
   const [loading, setloading] = useState(false)
 
   const navigate = useNavigate();
-  const {isAuthenticated} = useAuth();
+  const {isAuthenticated,backendURL} = useAuth();
 
   
  
@@ -35,7 +34,7 @@ const RateTeacher = () => {
     }
 
     try {
-        const response = await axios.post('http://localhost:3000/review/create-review', {
+        const response = await axios.post(backendURL + '/review/create-review', {
         knowledge,
         teachingStyle,
         assessmentFairness,

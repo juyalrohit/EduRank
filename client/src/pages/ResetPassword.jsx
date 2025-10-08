@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { data, useNavigate } from 'react-router-dom';
 import { Loader2  } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 const ResetPassword = () => {
     const inputRef = useRef([]);
@@ -16,6 +17,8 @@ const ResetPassword = () => {
 
     const [isEmailSubmitted,setIsEmailSubmitted] = useState(false);
     const [isOTPSubmitted,setIsOTPSubmitted] = useState(false)
+    const {backendURL} = useAuth();
+
 
 
 
@@ -25,7 +28,7 @@ const ResetPassword = () => {
        
 
         try {
-            const {data} = await axios.post('http://localhost:3000/user/send-password-otp',{email});
+            const {data} = await axios.post(backendURL + '/user/send-password-otp',{email});
             if(data.success){
                 toast.success(data.message)
                 setIsEmailSubmitted(true);
@@ -61,7 +64,7 @@ const ResetPassword = () => {
     const handleNewPassword = async(e)=>{
         e.preventDefault();
         try {
-            const {data} =  await axios.post('http://localhost:3000/user/reset-password',{email,otp,newPassword})
+            const {data} =  await axios.post(backendURL + '/user/reset-password',{email,otp,newPassword})
             if(data.success){
                 toast.success(data.message)
                 navigate('/login')

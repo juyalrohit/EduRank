@@ -8,15 +8,13 @@ import College from '../assets/maxresdefault.jpg'
 
 
 const TeacherDetail = () => {
-    const {Id,prevPageId} = useParams();
+    const {Id} = useParams();
     const naviGate = useNavigate();
     const [isExpanded, setisExpanded] = useState(false);
     const [teacher, setteacher] = useState();
     const [loading, setloading] = useState(true);
 
 
-
- 
   
 
     useEffect(()=>{
@@ -69,11 +67,15 @@ const data = [
 
   return (
     <div className='w-full  pb-5 sm:mt-22'>
+
         <div onClick={goBack} className='fixed sm:top-24 top-14 sm:right-4 right-3 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
             <i class="ri-close-large-line"></i>
         </div>
 
-        <button  onClick={()=>naviGate(`/RateTeacher/${Id}`)} className="btn fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white font-bold sm:py-6 py-2 sm:px-5 px-3 rounded-full shadow-lg transition duration-300 z-99">Give Review ⭐</button>
+        <button  onClick={()=>naviGate(`/RateTeacher/${Id}`)} 
+        className="btn fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white font-bold sm:py-6 py-2 sm:px-5 px-3 rounded-full shadow-lg transition duration-300 z-99">
+          Give Review ⭐
+        </button>
          <div className='w-full h-72 z-59 relative'>
             <div className='sm:text-xl text-[1rem] text-white absolute top-30 sm:pl-10 pl-4 z-50 '>
                 <h1 className='sm:text-2xl text-xl  tracking-wider font-bold uppercase'> Department of {teacher.department.name.replace(/Department/gi, '').trim() }</h1>
@@ -83,7 +85,7 @@ const data = [
             </div>
      
             <img className=' w-full h-full blur-[3px]  ' src={College}alt="Computer" />
-      </div>
+       </div>
 
       <div className='w-[80%] mx-auto mt-10 sm:flex  gap-44 space-y-8 '>
         <img className='w-80  sm:h-80 h-70 shadow-sm' src={teacher.picture} alt="" />
@@ -117,8 +119,9 @@ const data = [
             
             <h2 className="text-xl font-bold mb-4  ">Ratings</h2>
            <p className='md:hidden text-red-500  text-sm font-light '>Note : For Small Screen Rating Bars Graph Migh Not Work Properly.</p>
-           <div className="sm:w-full h-[400px] bg-white rounded-2xl p-4 shadow-xl overflow-y-auto  ">
-              <ResponsiveContainer width="100%" height="90%">
+       <div className="sm:w-full h-[400px] bg-white rounded-2xl p-4 shadow-xl overflow-y-auto  ">
+
+          <ResponsiveContainer width="100%" height="90%">
             <BarChart data={data}>
               
               <CartesianGrid strokeDasharray="3 3" />
@@ -138,19 +141,17 @@ const data = [
                       />
                     ))
                   }
-
-
                 </Bar>        
-            
             </BarChart>
-</ResponsiveContainer>
+        </ResponsiveContainer>
 
           </div>
 
         </div>
 
-      </div>
+     </div>
       <div className='max-w-3xl  mx-auto  rounded-4xl  mt-6 p-4 bg-white  border-gray-500 shadow-lg mb-14'>
+
         <div className="flex justify-between items-center cursor-pointer border-b pb-3 p-2" onClick={()=> setisExpanded(!isExpanded)}>
         <h2 className="text-xl font-semibold">Student Feedbacks</h2>
         <span className="text-lg">{isExpanded ? <i class="ri-arrow-up-wide-fill"></i> : <i class="ri-arrow-down-wide-line"></i>}</span>

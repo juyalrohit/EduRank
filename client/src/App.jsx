@@ -15,7 +15,6 @@ import Login from './pages/Login';
 
 
 
-import Rating from './pages/Rating';
 import Course from './pages/Course';
 import SendEmail from './pages/SendEmail';
 import axios  from 'axios';
@@ -41,7 +40,7 @@ return (
    transition={{duration:0.75,ease:'easeInOut'}}
 
    className='w-screen min-h-screen '>
-    <AuthProvider> {/* ✅ Pure App ko Wrap Kar Raha Hai */}
+    <AuthProvider>
       <Router>
          <Header />
      
@@ -50,7 +49,6 @@ return (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<Course />} />
-          <Route path="/rating" element={<Rating />} />
           <Route path="/sendemail" element={<SendEmail />} />
           <Route path="/department/:id" element={<DepartmentDetail />} />
           <Route path='/teacher/:Id' element={<TeacherDetail/>} />

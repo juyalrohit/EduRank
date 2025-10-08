@@ -11,7 +11,7 @@ const SendEmail = () => {
     const [selectedEmail, setSelectedEmail] = useState("");
     const [message, setmessage] = useState("");
     const [type,setType] = useState('department');
-    const {departments,isAuthenticated} = useAuth();
+    const {departments,isAuthenticated,backendURL} = useAuth();
     const [senderEmail, setSenderEmail] = useState("");
     const [subject,setSubject] = useState("");
     const [loading, setloading] = useState(false);
@@ -34,10 +34,11 @@ const SendEmail = () => {
     if(!name || !selectedEmail || !message || !senderEmail || !subject){
         return toast.error("Please fill all the fields!");
     }
+
     axios.defaults.withCredentials = true;
     try {
 
-        const {data} = await axios.post('http://localhost:3000/contact/contact-faculty',{name,selectedEmail,message,senderEmail,subject});
+        const {data} = await axios.post(backendURL + '/contact/contact-faculty',{name,selectedEmail,message,senderEmail,subject});
 
         if(data.success){
             toast.success(data.message)

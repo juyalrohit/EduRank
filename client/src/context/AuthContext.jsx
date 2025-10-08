@@ -7,6 +7,7 @@ const AuthContext = createContext();
 // Provider
 
 export const AuthProvider = ({ children }) => {
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [departments, setdepartments] = useState([]);
   const [teachers, setteachers] = useState([]);
@@ -14,30 +15,9 @@ export const AuthProvider = ({ children }) => {
 
   const backendURL = import.meta.env.VITE_BACKEND_URL;
 
-  useEffect(()=>{
-
-    const getData = async()=>{
-
-      try{
-        const response = await axios.get('http://localhost:3000/searchdata/teacher-department');
-        const {teachers, departments} = response.data;
-        setdepartments(departments);
-        setteachers(teachers);
-      }
-      catch(error){
-         console.log("Something went wrong!",error);
-      }
-      finally{
-        setloading(false);
-      }
-
-    }
-
-    getData();
 
 
-  },[]);
- 
+ //Get User Details
   const getUserData = async()=>{
       try {
         const {data} = await axios.get(backendURL+'/user/get-user',{withCredentials:true});
@@ -73,11 +53,14 @@ export const AuthProvider = ({ children }) => {
   
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated,departments,teachers,setdepartments,setteachers ,userData,setUserData}}>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated,departments,teachers,setdepartments,setteachers ,
+    userData,setUserData, backendURL}}>
+
       {children}
+      
     </AuthContext.Provider>
   );
 };
 
-// Custom Hook for Authentication
+
 export const useAuth = () => useContext(AuthContext);

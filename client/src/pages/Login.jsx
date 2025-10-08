@@ -11,7 +11,7 @@ import { Loader2 } from 'lucide-react';
 
 const Login = () => {
 
-  const {setIsAuthenticated} = useAuth();
+  const {setIsAuthenticated,backendURL} = useAuth();
   const [state, setstate] = useState("Sign Up")
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +28,7 @@ const Login = () => {
     if(state==='Sign Up'){
       try {
         const {data} = await axios.post(
-          "http://localhost:3000/user/register-user",
+          backendURL + "/user/register-user",
           { name, email, password }  
         );
 
@@ -50,15 +50,16 @@ const Login = () => {
        setLoding(false);
     }
     }
+
     else{
     try {
-      const {data} = await axios.post('http://localhost:3000/user/login-user', 
+      const {data} = await axios.post(backendURL + '/user/login-user', 
         { email, password }
       );
 
       if(data.success){
         toast.success(data.message);
-        navigate('/'); // ✅ Redirect to Dashboard after login
+        navigate('/'); 
         setIsAuthenticated(true);
 
         //To save state of user
@@ -161,7 +162,9 @@ const Login = () => {
             <p className='text-gray-400 text-sm text-center mt-2 '>
               Don't have an account?{" "} <span onClick={()=>setstate("Sign Up")} className='text-blue-600 underline cursor-pointer'>Sign Up</span>
             </p>}
-          </form>
+        </form>
+
+        
       </div>
 
     

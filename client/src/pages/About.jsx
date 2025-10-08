@@ -82,7 +82,7 @@ const About = () => {
       <div className='flex justify-center gap-4'>
           <img src={Code} className='size-10 animate-bounce' alt="" />
 
-         <h2 class="sm:text-4xl text-2xl  mb-16 font-serif font-semibold">Project Creator</h2>
+         <h2 class="sm:text-4xl text-2xl  mb-16 font-serif font-semibold">Made By</h2>
           <img src={Code} className='size-10 animate-bounce' alt="" />
 
       </div>

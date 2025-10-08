@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext';
 const Contact = () => {
 
   const [loading,setLoading] = useState(false);
-  const {isAuthenticated} = useAuth()
+  const {isAuthenticated,backendURL} = useAuth()
   
 
   
@@ -30,7 +30,7 @@ const Contact = () => {
       }
 
       try {
-        const res = await axios.post('http://localhost:3000/contact/contact-team',form);
+        const res = await axios.post(backendURL + '/contact/contact-team',form);
         
         if (res.data.success) {
         toast.success(res.data.message);

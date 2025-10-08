@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import RatingBadge from '../feature/RatingBadge';
+import { useAuth } from '../context/AuthContext';
 
 const Cards = () => {
     var settings = {
@@ -43,16 +44,17 @@ const Cards = () => {
 
       const [departments, setDepartments] = useState("");
       const [loading, setLoading] = useState(true);
+      const {backendURL} = useAuth();
       
       useEffect(() => {
         const fetchAllDepartments = async () => {
           try {
-            const response = await axios.get('http://localhost:3000/department/get-departments');
+            const response = await axios.get(backendURL + '/department/get-departments');
             setDepartments(response.data);
-            setLoading(false);  // ✅ Set loading to false after fetching data
+            setLoading(false); 
           } catch (error) {
             console.log("Error fetching departments:", error);
-            setLoading(false);  // ✅ Prevent infinite loading
+            setLoading(false); 
           }
         };
       

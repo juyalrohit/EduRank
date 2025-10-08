@@ -22,18 +22,17 @@ const DepartmentDetail = () => {
   const [loading, setLoading] = useState(true);
   const [isExpanded,setIsExpanded] = useState(false);
   const naviGate = useNavigate();
-  const {departments} = useAuth();
+  const {departments,backendURL} = useAuth();
   
 
 
   useEffect(() => {
     const fetchDepartment = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/department/get-department/${id}`);
+        const response = await axios.get(backendURL + `/department/get-department/${id}`);
         setDepartment(response.data);
         setLoading(false);
       } catch (error) {
-        console.log("Error fetching department:", error);
         setLoading(false);
       }
     };

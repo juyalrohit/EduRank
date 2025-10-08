@@ -18,7 +18,7 @@ const RateDepartment = () => {
   const [flashmessage, setflashmessage] = useState();
   const navigate = useNavigate();
 
-  const {isAuthenticated} = useAuth();
+  const {isAuthenticated,backendURL} = useAuth();
 
 
   const submitReview = async (e) => {
@@ -28,7 +28,7 @@ const RateDepartment = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/review/create-review', {
+      const response = await axios.post(backendURL + '/review/create-review', {
         knowledge,
         teachingStyle,
         assessmentFairness,
@@ -43,13 +43,12 @@ const RateDepartment = () => {
         navigate(`/department/${targetId}`);
       },2000)
     } catch (error) {
-      console.log('Error submitting review:', error);
       toast.error("Failed to submit review")
     }
   };
 
   const goBack = () => {
-    navigate(-1); // Goes back to the previous page
+      navigate(-1); // Goes back to the previous page
   };
   
   return (
