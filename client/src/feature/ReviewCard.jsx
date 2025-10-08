@@ -12,7 +12,7 @@ const ReviewCard = ({ review }) => {
   const [isClick, setisClick] = useState(false);
   
   const [comment, setcomment] = useState(review.comment);
-  console.log(review.upVote)
+  console.log(review)
 
   const [likes, setLikes] = useState(review.upVote.length || 0);
   const [dislikes, setDislikes] = useState(review.downVote.length || 0);
@@ -35,7 +35,7 @@ const ReviewCard = ({ review }) => {
 
 
 
-  
+  console.log(review);
   
 
     let bgColor = 'bg-orange-400'; // Default
@@ -190,6 +190,9 @@ const handleReply = async(e)=>{
     }
   };
 
+  
+
+
   return (
     <div className="p-4 border-b border-gray-300 rounded-md shadow-sm relative scrollbar">
       {/* user name logo and time with stamp */}
@@ -201,7 +204,8 @@ const handleReply = async(e)=>{
 
           <div className="w-full">
             <p className="font-semibold">{review.user.name}</p>
-            <p className="text-sm text-gray-500">{new Date(review.createdAt).toLocaleDateString()}</p>
+            <p className="text-sm text-gray-500">{new Date(review.createdAt).toLocaleDateString()} <span>{review.isEdit ? "(edited)" : ""}</span></p>
+             
           </div>
       </div>
 

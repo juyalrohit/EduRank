@@ -165,7 +165,7 @@ module.exports.updateComment = async(req,res)=>{
    try{
      const {comment} = req.body;
      const _id = req.params.Id;
-     await reviewModel.findByIdAndUpdate(_id,{comment});
+     await reviewModel.findByIdAndUpdate(_id,{comment,isEdit:true} ,{new:true});
      res.status(200).json({success:true,message:"Comment is Updated"});
    }
    catch(error){
