@@ -16,9 +16,6 @@ const SendEmail = () => {
     const [subject,setSubject] = useState("");
     const [loading, setloading] = useState(false);
     
-    // List of departments and their emails
-    const [departmentEmail, setdepartmentEmail] = useState([]);
-
      const handleSelectChange = (e) => {
         setSelectedEmail(e.target.value);
      

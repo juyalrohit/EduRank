@@ -95,12 +95,12 @@ const About = () => {
        <div className="relative w-full h-40 rounded-2xl overflow-hidden">
 
          {/* Blurred background image */}
-        <div className="absolute inset-0 bg-[url('https://media.licdn.com/dms/image/v2/D5603AQHHKiPiZjjtcQ/profile-displayphoto-shrink_400_400/B56ZYpTyGPH0Ag-/0/1744449775200?e=1756339200&v=beta&t=HFf1gx4upu2XNQ_NAE6NP97ClLIxWfdEf7UxDtG-ivE')] bg-cover bg-center filter blur-md">
+        <div className="absolute inset-0 bg-[url('/profile.jpg')] bg-cover bg-center filter blur-md">
         </div>
 
         {/* Content on top */}
         <div className="relative z-10  text-white ">
-          <img className='rounded-full w-34 h-34 mx-auto mt-2' src="https://media.licdn.com/dms/image/v2/D5603AQHHKiPiZjjtcQ/profile-displayphoto-shrink_400_400/B56ZYpTyGPH0Ag-/0/1744449775200?e=1756339200&v=beta&t=HFf1gx4upu2XNQ_NAE6NP97ClLIxWfdEf7UxDtG-ivE" alt="" />
+          <img className='rounded-full w-34 h-34 mx-auto mt-2' src="/profile.jpg" alt="" />
         </div>
 
 </div>

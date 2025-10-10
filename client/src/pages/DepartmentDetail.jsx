@@ -13,6 +13,9 @@ import { useAuth } from '../context/AuthContext';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import ReadMore from '../feature/ReadMore'
 import College from '../assets/maxresdefault.jpg'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
+
 
 
 
@@ -37,10 +40,20 @@ const DepartmentDetail = () => {
       }
     };
 
-    fetchDepartment();
+    setTimeout(() => {
+      fetchDepartment();
+    }, 2000);
+
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div className="flex justify-center items-center h-full w-full"> <DotLottieReact
+      src="path/to/animation.lottie"
+      loop
+      autoplay
+    />
+</div>;
+
+
   if (!department) return <p>Department not found!</p>;
 
 
@@ -113,7 +126,6 @@ const getAvgRating = (reviews)=>{
 
 const rank = departments.findIndex((dept)=>dept._id===id);
 
-const type = "department"
 
 
 

@@ -15,7 +15,6 @@ const RateDepartment = () => {
   const [comment, setComment] = useState('');
   const [type] = useState('department'); 
   const { Id: targetId } = useParams();
-  const [flashmessage, setflashmessage] = useState();
   const navigate = useNavigate();
 
   const {isAuthenticated,backendURL} = useAuth();

@@ -7,6 +7,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import College from '../assets/maxresdefault.jpg'
 
 
+
 const TeacherDetail = () => {
     const {Id} = useParams();
     const naviGate = useNavigate();
@@ -44,9 +45,6 @@ const getColorBasedOnRating = (rating) => {
 };
 
 
-
-
-console.log(teacher)
 
 
 
