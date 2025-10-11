@@ -108,7 +108,9 @@ const About = () => {
         <h3 class="text-xl font-semibold mt-4">Rohit Juyal</h3>
         <p class="text-gray-600">Frontend / Backend</p>
         <p class="mt-2 text-sm text-gray-500 p-6">Passionate about building responsive and user-friendly websites.</p>
-        <a href="mailto:rohit@example.com" class="text-blue-500 mt-3 mb-6 inline-block hover:underline">More About Me</a>
+        <a href="https://www.linkedin.com/in/rohit-juyal-917aa0270/" className="text-blue-500 mt-3 mb-6 inline-block hover:underline">
+          <img className='size-10' src="linkedin.png" alt="" />
+        </a>
       </div>
 
     

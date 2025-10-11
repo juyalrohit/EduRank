@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 
 
@@ -14,6 +15,7 @@ const Search = () => {
   const [loading, setloading] = useState(true)
 
   const [suggestions, setsuggestions] = useState([]);
+  const {backendURL} = useAuth()
 
   
  

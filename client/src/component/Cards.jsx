@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import RatingBadge from '../feature/RatingBadge';
 import { useAuth } from '../context/AuthContext';
+import Lottie from 'lottie-react';
+import loadingAnimation from '../animation/loading.json'
+import pageNotFound from '../animation/pageError.json'
 
 const Cards = () => {
     var settings = {
@@ -61,10 +64,9 @@ const Cards = () => {
         fetchAllDepartments();
       }, []);
       
-      if (loading) return <p>Loading...</p>;
-      if (!departments) return <p>No departments found</p>; 
+      if (loading) return <div className='w-full flex justify-center mt-20 '><Lottie  animationData={loadingAnimation}/></div>;
+      if (!departments) return <div className='w-full flex justify-center size-50 mt-20'><Lottie animationData={pageNotFound}/></div>; 
       
-      console.log(departments);
       
 
  const ReadMore = ({ children }) => {

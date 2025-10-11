@@ -3,23 +3,29 @@ import Foter from '../component/Foter'
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
-
+import Lottie from 'lottie-react';
+import loadingAnimation from "../animation/loading.json"
 
 const SendEmail = () => {
     const [name, setname] = useState("");
     const [selectedEmail, setSelectedEmail] = useState("");
     const [message, setmessage] = useState("");
     const [type,setType] = useState('department');
-    const {departments,isAuthenticated,backendURL} = useAuth();
+    const {isAuthenticated,backendURL} = useAuth();
     const [senderEmail, setSenderEmail] = useState("");
     const [subject,setSubject] = useState("");
     const [loading, setloading] = useState(false);
+    const [departmentEmail, setdepartmentEmail] = useState([]);
+    const [fetchingData, setfetchingData] = useState(true);
+
     
-     const handleSelectChange = (e) => {
+    
+   const handleSelectChange = (e) => {
         setSelectedEmail(e.target.value);
      
   };
+
+  
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -60,17 +66,39 @@ const SendEmail = () => {
     }
   }
 
+
+
+  useEffect(()=>{
+       const fetchDepartments = async()=>{
+            try {
+
+                const res = await axios.get(backendURL + '/searchdata/teacher-department');
+                const {departments} = res.data;
+                setdepartmentEmail(departments.map(dept => ({
+                    name: dept.name,
+                    email: dept.deptEmail
+                  })));
+                
+            } catch (error) {
+                console.log("Error fetching departments:", error);
+            }
+            finally{
+                setfetchingData(false);
+            }
+        }
+
+        
+        setTimeout(()=>{
+            fetchDepartments();
+        },500)
+       
+
+  },[])
+
   
-    useEffect(()=>{
-        const deptEmail = departments.map(dept => ({
-        name: dept.name,
-        email: dept.deptEmail
-      }));
-
-    //   setdepartmentEmail(deptEmail)
-},[departments])
 
 
+  if(fetchingData) return <div className='h-screen w-full flex items-center justify-center'><Lottie animationData={loadingAnimation} /></div>
 
    
     

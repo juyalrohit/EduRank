@@ -5,6 +5,8 @@ import axios from 'axios';
 import RatingBadge from '../feature/RatingBadge';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import College from '../assets/maxresdefault.jpg'
+import Lottie from 'lottie-react';
+import LoadingAnimation from '../animation/loading.json'
 
 
 
@@ -34,7 +36,10 @@ const TeacherDetail = () => {
         }
 
     }
-    fetchDepartment();
+    setTimeout(()=>{
+      fetchDepartment();
+    },500)
+    
 },[Id]);
 
 const getColorBasedOnRating = (rating) => {
@@ -52,7 +57,7 @@ const goBack = () => {
     naviGate(-1); // Goes back to the previous page
   };
   
-if(loading) return <p>Fetching Teacher Details....</p>;
+if(loading) return <div className='h-screen w-full flex items-center justify-center'><Lottie animationData={LoadingAnimation}/></div>;
 
 
 const data = [

@@ -13,9 +13,8 @@ import { useAuth } from '../context/AuthContext';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import ReadMore from '../feature/ReadMore'
 import College from '../assets/maxresdefault.jpg'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-
-
+import Lottie  from "lottie-react"
+import LoadingAnimation from "../animation/loading.json"
 
 
 
@@ -42,15 +41,12 @@ const DepartmentDetail = () => {
 
     setTimeout(() => {
       fetchDepartment();
-    }, 2000);
+    }, 500);
 
   }, [id]);
 
-  if (loading) return <div className="flex justify-center items-center h-full w-full"> <DotLottieReact
-      src="path/to/animation.lottie"
-      loop
-      autoplay
-    />
+  if (loading) return <div className="flex h-screen  w-full justify-center items-center"> 
+         <Lottie animationData={LoadingAnimation} />;
 </div>;
 
 

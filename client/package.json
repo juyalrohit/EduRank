@@ -16,6 +16,7 @@
     "dotenv": "^16.5.0",
     "flowbite": "^3.1.2",
     "framer-motion": "^12.23.22",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.525.0",
     "motion": "^12.23.22",
     "react": "^18.3.1",
