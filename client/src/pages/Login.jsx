@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import {assets} from '../assets/assets'
 import { Loader2 } from 'lucide-react';
+import {motion} from 'framer-motion'
 
 
 const Login = () => {
@@ -82,13 +83,18 @@ const Login = () => {
 
   return (
     <>
-    <div className="flex flex-col items-center justify-center min-h-screen px-6 sm:px-0
+    <motion.div
+     initial={{y:-30,opacity:0}}
+     animate={{y:0,opacity:1}}
+     transition={{duration:0.75,ease:'easeInOut'}}
+    
+    className="flex flex-col items-center justify-center min-h-screen px-6 sm:px-0
       gap-10 ">
       <div  className='w-full rounded-lg shadow-lg sm:w-96  text-sm p-8 mt-8'>
        
         <h1 className='text-3xl text-center font-semibold mb-3'>{state==='Sign Up'  ? 'Create Account' : 'Log In'}</h1>
 
-        <p className='text-sm text-center mb-8'>{state==='Sign Up'  ? 'create your account' : 'Log In to your account!'}</p>
+        <p className='text-sm text-center mb-8 text-gray-500'>{state==='Sign Up'  ? 'Create your student account to explore departments, teachers, and more!' : 'Log In to your account!'}</p>
 
 
 
@@ -168,7 +174,7 @@ const Login = () => {
       </div>
 
     
-    </div>
+    </motion.div>
     <Foter />
     </>
     

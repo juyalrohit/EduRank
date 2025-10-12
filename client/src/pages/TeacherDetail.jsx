@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import ReviewCard from '../feature/ReviewCard';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import RatingBadge from '../feature/RatingBadge';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import College from '../assets/maxresdefault.jpg'
 import Lottie from 'lottie-react';
 import LoadingAnimation from '../animation/loading.json'
+import {motion} from 'framer-motion'
 
 
 
@@ -69,7 +69,11 @@ const data = [
 
 
   return (
-    <div className='w-full  pb-5 sm:mt-22'>
+    <motion.div 
+      initial={{opacity:0}}
+      animate={{opacity:1}}
+      transition={{duration:0.75,ease:'easeInOut'}}
+    className='w-full  pb-5 sm:mt-22'>
 
         <div onClick={goBack} className='fixed sm:top-24 top-14 sm:right-4 right-3 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
             <i class="ri-close-large-line"></i>
@@ -180,7 +184,7 @@ const data = [
 
       </div>
         
-    </div>
+    </motion.div>
   )
 }
 

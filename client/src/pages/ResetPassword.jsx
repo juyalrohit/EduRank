@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { data, useNavigate } from 'react-router-dom';
 import { Loader2  } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import {motion} from 'framer-motion'
 
 const ResetPassword = () => {
     const inputRef = useRef([]);
@@ -108,7 +109,11 @@ const ResetPassword = () => {
       
       
   return (
-    <div className='w-full min-h-screen flex justify-center items-center px-6 sm:px-0 '>
+    <motion.div
+      initial={{y:-30,opacity:0}}
+      animate={{y:0,opacity:1}}
+      transition={{duration:0.75,ease:'easeInOut'}}
+     className='w-full min-h-screen flex justify-center items-center px-6 sm:px-0 '>
         
         {/* Stage 1 : Fill you register email section  */}
         {!isEmailSubmitted && !isOTPSubmitted && 
@@ -192,7 +197,7 @@ const ResetPassword = () => {
             </button>
         </form>}
         
-    </div>
+    </motion.div>
   )
 }
 

@@ -10,7 +10,7 @@ import DropDown from '../feature/DropDown';
 import { useAuth } from '../context/AuthContext';
 import { useFormState } from 'react-dom';
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
-
+import {motion} from 'framer-motion'
 const Header = () => {
   const navigate = useNavigate();
   const { isAuthenticated, setIsAuthenticated ,backendURL} = useAuth();
@@ -32,7 +32,12 @@ const Header = () => {
 
   return (
     <>
-    <div className="fixed top-0 left-0 w-screen md:w-full z-99 
+    <motion.div
+      initial={{y:-30,opacity:0}}
+      whileInView={{y:0,opacity:1}}
+      transition={{duration:0.75,ease:'easeInOut',delay:0.4}}
+
+     className="fixed top-0 left-0 w-screen md:w-full z-99 
      md:h-22 flex md:justify-normal items-center justify-between md:p-7 
       border-black-400 bg-white md:z-99  shadow-sm">
       <img
@@ -93,7 +98,7 @@ const Header = () => {
         </div>
 
 
-    </div>
+    </motion.div>
 
     {isOpen && (
         <div className="fixed top-14 left-[40%] w-full  bg-white  flex flex-col items-start  gap-6 pt-12 pl-6 transition-all overflow-hidden z-99">

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import Lottie from 'lottie-react';
 import loadingAnimation from "../animation/loading.json"
+import {motion} from "framer-motion"
 
 const SendEmail = () => {
     const [name, setname] = useState("");
@@ -105,7 +106,12 @@ const SendEmail = () => {
 
 
     return (
-        <div className='w-full flex flex-col gap-8 mt-22'>
+        <motion.div
+        initial={{y:-30,opacity:0}}
+        animate={{y:0,opacity:1}}
+        transition={{duration:0.75,ease:'easeInOut'}}
+        
+        className='w-full flex flex-col gap-8 mt-22'>
 
         
         <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
@@ -223,7 +229,7 @@ const SendEmail = () => {
             </form>
         </div>
         <Foter/>
-        </div>
+        </motion.div>
 
     );
 };

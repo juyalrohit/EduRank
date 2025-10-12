@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from '../context/AuthContext';
 import {Loader, Loader2} from 'lucide-react'
+import {motion} from 'framer-motion'
 
 
 
@@ -66,7 +67,13 @@ const RateTeacher = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-center bg-gray-200 px-6 sm:mt-20 mt-6 py-6 ">
+    <motion.div
+    
+     initial={{y:-30,opacity:0}}
+     animate={{y:0,opacity:1}}
+     transition={{duration:0.75,ease:'easeInOut'}}
+
+     className="w-full min-h-screen flex justify-center items-center bg-gray-200 px-6 sm:mt-20 mt-6 py-6 ">
      <div onClick={goBack} className='fixed sm:top-24 top-16 sm:right-4 right-6 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
             <i class="ri-close-large-line"></i>
     </div>
@@ -141,7 +148,7 @@ const RateTeacher = () => {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

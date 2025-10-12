@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Foter from '../component/Foter';
 import Gate from '../assets/photojpg.jpg'
-import Member1 from '../assets/profile.jpg'
 import  useScreenValue  from '../feature/useScreenValue';
 import College from '../assets/maxresdefault.jpg'
 import Code from '../assets/code.svg'
+import {motion} from 'framer-motion'
 
 
 const About = () => {
@@ -41,7 +41,14 @@ const About = () => {
   };
    return (
         <>
-        <div className="w-full  bg-white-100 sm:mt-22">
+        <motion.div
+        
+         initial={{y:-30,opacity:0}}
+         animate={{y:0,opacity:1}}
+         transition={{duration:0.75,ease:'easeInOut'}}
+
+
+         className="w-full  bg-white-100 sm:mt-22">
      
               <div className='w-full sm:h-72 h-60 z-40 relative  border border-b-1 border-gray-400'>
                 <div className='text-xl text-white absolute top-30 pl-10 z-40  '>
@@ -77,54 +84,59 @@ const About = () => {
                 </p>
     
         
-    <section class=" py-10 mt-14">
-    <div class="max-w-5xl mx-auto text-center">
-      <div className='flex justify-center gap-4'>
-          <img src={Code} className='size-10 animate-bounce' alt="" />
+          <section class=" py-10 mt-14">
+          <div class="max-w-5xl mx-auto text-center">
+            <div className='flex justify-center gap-4'>
+                <img src={Code} className='size-10 animate-bounce' alt="" />
 
-         <h2 class="sm:text-4xl text-2xl  mb-16 font-serif font-semibold">Made By</h2>
-          <img src={Code} className='size-10 animate-bounce' alt="" />
+              <h2 class="sm:text-4xl text-2xl  mb-16 font-serif font-semibold">Made By</h2>
+                <img src={Code} className='size-10 animate-bounce' alt="" />
 
-      </div>
-     
-    <div class="sm:flex justify-around gap-8 items-center">
-      
-     
-      <div class="bg-white  rounded-2xl shadow-lg ">
-       
-       <div className="relative w-full h-40 rounded-2xl overflow-hidden">
+            </div>
+          
+          <motion.div
+          initial={{scale:0}}
+          whileInView={{scale:1}}
+          transition={{duration:0.4,ease:'easeInOut', stiffness:100, type:"spring"}}
+          
+          class="sm:flex justify-around gap-8 items-center">
+            
+          
+            <div class="bg-white  rounded-2xl shadow-lg ">
+            
+            <div className="relative w-full h-40 rounded-2xl overflow-hidden">
 
-         {/* Blurred background image */}
-        <div className="absolute inset-0 bg-[url('/profile.jpg')] bg-cover bg-center filter blur-md">
-        </div>
+              {/* Blurred background image */}
+              <div className="absolute inset-0 bg-[url('/profile.jpg')] bg-cover bg-center filter blur-md">
+              </div>
 
-        {/* Content on top */}
-        <div className="relative z-10  text-white ">
-          <img className='rounded-full w-34 h-34 mx-auto mt-2' src="/profile.jpg" alt="" />
-        </div>
+              {/* Content on top */}
+              <div className="relative z-10  text-white ">
+                <img className='rounded-full w-34 h-34 mx-auto mt-2' src="/profile.jpg" alt="" />
+              </div>
 
-</div>
-        
-        <h3 class="text-xl font-semibold mt-4">Rohit Juyal</h3>
-        <p class="text-gray-600">Frontend / Backend</p>
-        <p class="mt-2 text-sm text-gray-500 p-6">Passionate about building responsive and user-friendly websites.</p>
-        <a href="https://www.linkedin.com/in/rohit-juyal-917aa0270/" className="text-blue-500 mt-3 mb-6 inline-block hover:underline">
-          <img className='size-10' src="linkedin.png" alt="" />
-        </a>
-      </div>
+          </div>
+              
+              <h3 class="text-xl font-semibold mt-4">Rohit Juyal</h3>
+              <p class="text-gray-600">Frontend / Backend</p>
+              <p class="mt-2 text-sm text-gray-500 p-6">Passionate about building responsive and user-friendly websites.</p>
+              <a href="https://www.linkedin.com/in/rohit-juyal-917aa0270/" className="text-blue-500 mt-3 mb-6 inline-block hover:underline">
+                <img className='size-10' src="linkedin.png" alt="" />
+              </a>
+            </div>
 
-    
-      
-    </div>
-  </div>
-</section>
-            </div> 
+          
+            
+          </motion.div>
+          </div>
+          </section>
+           </div> 
            
            
 
         
             
-        </div>
+        </motion.div>
         <Foter/>
         </>
     );

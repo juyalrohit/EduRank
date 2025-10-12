@@ -41,6 +41,7 @@ const Hero = () => {
            hover:bg-gradient-to-r hover:from-gray-600 hover:to-gray-950 py-5 cursor-pointer
             sm:5 px-2 sm:px-6 border-white text-white rounded-lg   text-xl sm:text-2xl
            '>Send Email <span><i class="ri-mail-line"></i></span></button></Link>
+           
           <Link to={'/courses'} >  <button className='  bg-gradient-to-r from-blue-400 to-blue-600 cursor-pointer p-5 
           hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-900
           sm:5 px-2 sm:px-6 border-white text-white rounded-lg   text-xl sm:text-2xl '>Find Courses <span><i class="ri-graduation-cap-line"></i></span></button></Link> 

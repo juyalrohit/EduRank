@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Foter from '../component/Foter'
 import { useNavigate } from 'react-router-dom';
+import {motion} from 'framer-motion'
 
 
  const kumaunCourses = [
@@ -21,7 +22,11 @@ const Course = () => {
 
    const naviGate = useNavigate();
   return (
-      <div className='w-full h-screen mt-22 bg-neutral-50 '>
+      <motion.div
+       initial={{y:-30,opacity:0}}
+       animate={{y:0,opacity:1}}
+       transition={{duration:0.75,ease:'easeInOut'}}
+       className='w-full h-screen mt-22 bg-neutral-50 '>
 
      
         <div className="w-full bg-opacity-50  z-50  flex items-center justify-center p-4">
@@ -55,7 +60,7 @@ const Course = () => {
     </div>
 
       
-    </div>
+    </motion.div>
      )
 }
 

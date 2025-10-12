@@ -15,6 +15,7 @@ import ReadMore from '../feature/ReadMore'
 import College from '../assets/maxresdefault.jpg'
 import Lottie  from "lottie-react"
 import LoadingAnimation from "../animation/loading.json"
+import {motion} from 'framer-motion'
 
 
 
@@ -128,7 +129,12 @@ const rank = departments.findIndex((dept)=>dept._id===id);
   return (
     <>
      
-     <div id='dept' className="w-[100vw]  sm:mt-22 sm:flex-none flex flex-col ">
+     <motion.div
+      initial={{y:-30,opacity:0}}
+      animate={{y:0,opacity:1}}
+      transition={{duration:0.75,ease:'easeInOut'}}
+      
+      id='dept' className="w-[100vw]  sm:mt-22 sm:flex-none flex flex-col ">
      <div onClick={()=>naviGate('/')} className='fixed sm:top-24 top-14 sm:right-4 right-6 z-99 text-xl cursor-pointer transform hover:bg-red-500 '>
             <i class="ri-close-large-line"></i>
         </div>
@@ -278,7 +284,7 @@ const rank = departments.findIndex((dept)=>dept._id===id);
       </section>
      
       
-    </div>
+    </motion.div>
     <Foter/>
     </>
    

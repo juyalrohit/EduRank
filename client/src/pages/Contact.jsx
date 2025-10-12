@@ -3,6 +3,7 @@ import Foter from '../component/Foter'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useAuth } from '../context/AuthContext';
+import {motion} from 'framer-motion'
 
 const Contact = () => {
 
@@ -16,6 +17,8 @@ const Contact = () => {
     senderMail: '',
     message: ''
   });
+
+
 
   const handleSubmit = async(e)=>{
       e.preventDefault();
@@ -49,7 +52,11 @@ const Contact = () => {
 
 
   return (
-    <div className='w-full mt-12'>
+    <motion.div
+      initial={{y:-30,opacity:0}}
+      animate={{y:0,opacity:1}}
+      transition={{duration:0.75,ease:'easeInOut'}}
+     className='w-full mt-12'>
             <div className='sm:px-20 sm:py-14 py-3'>
               <div class="max-w-2xl w-full md:mx-auto px-4 text-center py-5 ">
                 <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
@@ -94,7 +101,7 @@ const Contact = () => {
       <div>
       <Foter/>
       </div>
-    </div>
+    </motion.div>
     
   )
 }
