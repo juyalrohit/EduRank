@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [teachers, setteachers] = useState([]);
   const [userData, setUserData] = useState("")
 
-  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const backendURL = 'https://edurank.onrender.com';
 
 
 
