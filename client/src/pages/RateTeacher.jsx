@@ -75,7 +75,7 @@ const RateTeacher = () => {
 
      className="w-full min-h-screen flex justify-center items-center bg-gray-200 px-6 sm:mt-20 mt-6 py-6 ">
      <div onClick={goBack} className='fixed sm:top-24 top-16 sm:right-4 right-6 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
-            <i class="ri-close-large-line"></i>
+            <i className="ri-close-large-line"></i>
     </div>
 
       <div className="bg-white shadow-lg rounded-lg p-8 sm:w-[50vw] w-full">
@@ -85,7 +85,7 @@ const RateTeacher = () => {
         <form onSubmit={submitReview} className="space-y-4">
           <div className="space-y-6">
             <label className="text-gray-700 font-medium sm:mb-1 mb-6 ">
-              <i class="ri-arrow-right-s-fill"></i> 
+              <i className="ri-arrow-right-s-fill"></i>
               Subject Knowledge –  (Does the teacher have deep understanding of the subject?)
             </label>
             <input
@@ -109,7 +109,7 @@ const RateTeacher = () => {
               max="10"
             />
 
-            <label className="text-gray-700 font-medium mb-1  sm:mt-0 mt-9"><i class="ri-arrow-right-s-fill"></i> Punctuality/Consistency – (Do they take classes on time and regularly?)</label>
+            <label className="text-gray-700 font-medium mb-1  sm:mt-0 mt-9"><i className="ri-arrow-right-s-fill"></i> Punctuality/Consistency – (Do they take classes on time and regularly?)</label>
             <input
               type="number"
               required
@@ -120,7 +120,7 @@ const RateTeacher = () => {
               max="10"
             />
 
-            <label className="text-gray-700 font-medium mb-1  sm:mt-0 mt-9"><i class="ri-arrow-right-s-fill"></i> Student Support – (Are they helpful and approachable outside of class?)</label>
+            <label className="text-gray-700 font-medium mb-1  sm:mt-0 mt-9"><i className="ri-arrow-right-s-fill"></i> Student Support – (Are they helpful and approachable outside of class?)</label>
             <input
               type="number"
               required

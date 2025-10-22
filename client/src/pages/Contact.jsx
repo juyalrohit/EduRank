@@ -58,14 +58,14 @@ const Contact = () => {
       transition={{duration:0.75,ease:'easeInOut'}}
      className='w-full mt-12'>
             <div className='sm:px-20 sm:py-14 py-3'>
-              <div class="max-w-2xl w-full md:mx-auto px-4 text-center py-5 ">
-                <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-                <p class=" mb-8">Have any questions? Reach out to us, and we'll get back to you shortly!</p>
+              <div className="max-w-2xl w-full md:mx-auto px-4 text-center py-5 ">
+                <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+                <p className=" mb-8">Have any questions? Reach out to us, and we'll get back to you shortly!</p>
 
                 <form className=" shadow-lg rounded-2xl p-6 space-y-4" onSubmit={handleSubmit}>
                   
                   <div>
-                    <label class="block text-left  font-semibold">Your Name</label>
+                    <label className="block text-left  font-semibold">Your Name</label>
                     <input type="text" placeholder="Enter your name"
                      className="  w-full mt-1 p-3 rounded-lg outline-none"
                       onChange={(e)=>(setform({...form,name:e.target.value}))} value={form.name}/>
@@ -73,7 +73,7 @@ const Contact = () => {
 
             
                   <div>
-                    <label class="block text-left  font-semibold">Your Email</label>
+                    <label className="block text-left  font-semibold">Your Email</label>
                     <input type="email" placeholder="Enter your email"
                      className=" w-full mt-1 p-3  0 rounded-lg  outline-none"
                      onChange={(e)=>(setform({...form,senderMail:e.target.value}))} value={form.senderMail}
@@ -81,7 +81,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label class="block text-left  font-semibold">Your Message</label>
+                    <label className="block text-left  font-semibold">Your Message</label>
                     <textarea placeholder="Type your message here..." rows="4"
                      className=" w-full mt-1 p-3  rounded-lg  outline-none"
                      onChange={(e)=>(setform({...form,message:e.target.value}))} value={form.message}

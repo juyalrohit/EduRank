@@ -13,7 +13,9 @@ export const AuthProvider = ({ children }) => {
   const [teachers, setteachers] = useState([]);
   const [userData, setUserData] = useState("")
 
-  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const backendURL = 'http://localhost:3000';
+
+  console.log("backendURL", backendURL)
 
 
 
@@ -43,7 +45,7 @@ export const AuthProvider = ({ children }) => {
           setIsAuthenticated(false);
         }
       } catch (error) {
-        console.log('Auth check failed:', error.message);
+        console.log('User is not authenticated:');
         setIsAuthenticated(false);
       }
     };

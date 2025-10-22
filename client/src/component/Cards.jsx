@@ -106,10 +106,7 @@ const getAvgRating = (reviews)=>{
   return roundedRating;
 }
 
-if(departments){
-  console.log(departments[0].avgRating);
-}
- 
+
 
 
 

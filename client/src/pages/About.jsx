@@ -84,12 +84,12 @@ const About = () => {
                 </p>
     
         
-          <section class=" py-10 mt-14">
-          <div class="max-w-5xl mx-auto text-center">
+          <section className=" py-10 mt-14">
+          <div className="max-w-5xl mx-auto text-center">
             <div className='flex justify-center gap-4'>
                 <img src={Code} className='size-10 animate-bounce' alt="" />
 
-              <h2 class="sm:text-4xl text-2xl  mb-16 font-serif font-semibold">Made By</h2>
+              <h2 className="sm:text-4xl text-2xl  mb-16 font-serif font-semibold">Made By</h2>
                 <img src={Code} className='size-10 animate-bounce' alt="" />
 
             </div>
@@ -99,11 +99,11 @@ const About = () => {
           whileInView={{scale:1}}
           transition={{duration:0.4,ease:'easeInOut', stiffness:100, type:"spring"}}
           
-          class="sm:flex justify-around gap-8 items-center">
-            
-          
-            <div class="bg-white  rounded-2xl shadow-lg ">
-            
+          className="sm:flex justify-around gap-8 items-center">
+
+
+            <div className="bg-white  rounded-2xl shadow-lg ">
+
             <div className="relative w-full h-40 rounded-2xl overflow-hidden">
 
               {/* Blurred background image */}
@@ -117,9 +117,9 @@ const About = () => {
 
           </div>
               
-              <h3 class="text-xl font-semibold mt-4">Rohit Juyal</h3>
-              <p class="text-gray-600">Frontend / Backend</p>
-              <p class="mt-2 text-sm text-gray-500 p-6">Passionate about building responsive and user-friendly websites.</p>
+              <h3 className="text-xl font-semibold mt-4">Rohit Juyal</h3>
+              <p className="text-gray-600">Frontend / Backend</p>
+              <p className="mt-2 text-sm text-gray-500 p-6">Passionate about building responsive and user-friendly websites.</p>
               <a href="https://www.linkedin.com/in/rohit-juyal-917aa0270/" className="text-blue-500 mt-3 mb-6 inline-block hover:underline">
                 <img className='size-10' src="linkedin.png" alt="" />
               </a>

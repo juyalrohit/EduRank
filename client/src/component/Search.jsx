@@ -110,8 +110,17 @@ const handleChange = (e)=>{
   return (
     <div className=" w-full sm:p-0 p-5   absolute top-[45%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
       <div className='flex justify-center items-center '>
-      <input type="text" value={content}  onChange={ handleChange} className="px-4 py-3 w-[600px] text-left placeholder:text-left rounded-lg rounded-r-none border-2 border-white bg-white text-black placeholder-gray-400  hover: outline-indigo-400" placeholder="Search for department..."/>
-      <button onClick={hadleSearchSection}  className="btn px-4 py-6  bg-blue-400  text-white rounded-l-none rounded-lg cursor-pointer text-2xl"><i  class="ri-search-line"></i></button>
+        
+      <input type="text" value={content} 
+        onChange={ handleChange}
+        className="px-4 py-3 w-[600px] text-left placeholder:text-left rounded-lg rounded-r-none border-2 border-white bg-white text-black placeholder-gray-400  hover: outline-indigo-400"
+        placeholder="Search for department..."/>
+      
+      <button onClick={hadleSearchSection}
+        className="btn px-4 py-6  bg-blue-400  text-white rounded-l-none rounded-lg cursor-pointer text-2xl"
+        ><i  className="ri-search-line"></i>
+      </button>
+
       </div>
        
 

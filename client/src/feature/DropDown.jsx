@@ -19,9 +19,9 @@ const DropDown = ({navElement,features}) => {
         <span className="mr-2 font-medium">{navElement}</span>
 
         {isHovered ? (
-          <span><i class="ri-arrow-up-wide-fill"></i></span> 
+          <span><i className="ri-arrow-up-wide-fill"></i></span> 
         ) : (
-          <span><i class="ri-arrow-down-wide-fill"></i></span> 
+          <span><i className="ri-arrow-down-wide-fill"></i></span> 
         )}
 
       </div>

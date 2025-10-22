@@ -58,7 +58,7 @@ const RateDepartment = () => {
      className="w-full min-h-screen flex justify-center items-center bg-gray-100 px-6 sm:mt-20 mt-6">
 
         <div onClick={goBack} className='fixed sm:top-24 top-16 sm:right-4 right-6 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
-            <i class="ri-close-large-line"></i>
+            <i className="ri-close-large-line"></i>
        </div>
    
   <div className="bg-white shadow-lg rounded-lg p-8 sm:w-[50vw] w-full">
@@ -67,7 +67,7 @@ const RateDepartment = () => {
 
     <form className="space-y-4"  onSubmit={submitReview}>
     
-          <label className="block text-gray-700 font-medium mb-1"><i class="ri-arrow-right-s-fill"></i> Overall Facilities – (Labs, classrooms, libraries, etc.)</label>
+          <label className="block text-gray-700 font-medium mb-1"><i className="ri-arrow-right-s-fill"></i> Overall Facilities – (Labs, classrooms, libraries, etc.)</label>
           <input
             onChange={(e)=> setKnowledge(e.target.value)}
             type="number"
@@ -78,7 +78,7 @@ const RateDepartment = () => {
             required
           />
 
-          <label className="block text-gray-700 font-medium mb-1"><i class="ri-arrow-right-s-fill"></i>Faculty Support – (How supportive teachers & staff are)</label>
+          <label className="block text-gray-700 font-medium mb-1"><i className="ri-arrow-right-s-fill"></i>Faculty Support – (How supportive teachers & staff are)</label>
           <input
             onChange={(e)=>setTeachingStyle(e.target.value)}
             type="number"
@@ -89,7 +89,7 @@ const RateDepartment = () => {
             required
           />
 
-          <label className="block text-gray-700 font-medium mb-1"><i class="ri-arrow-right-s-fill"></i>Extracurricular Activities – (Events, competitions, etc.)</label>
+          <label className="block text-gray-700 font-medium mb-1"><i className="ri-arrow-right-s-fill"></i>Extracurricular Activities – (Events, competitions, etc.)</label>
           <input
             onChange={(e)=> setAssessmentFairness(e.target.value)}
             type="number"
@@ -100,7 +100,7 @@ const RateDepartment = () => {
             required
           />
 
-          <label className="block text-gray-700 font-medium mb-1"><i class="ri-arrow-right-s-fill"></i> Course Structure – (Relevance and quality of syllabus)</label>
+          <label className="block text-gray-700 font-medium mb-1"><i className="ri-arrow-right-s-fill"></i> Course Structure – (Relevance and quality of syllabus)</label>
           <input
             onChange={(e)=> setStudentSupport(e.target.value)}
             type="number"

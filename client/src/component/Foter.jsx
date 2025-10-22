@@ -21,22 +21,22 @@ const Foter = () => {
         </div>
 
     <div className=' absolute top-8 sm:top-12 left-2 sm:left-16 text-white'>
-      <h4 class=" font-normal mb-6 sm:font-semibold">Connect With Us</h4>
-      <div class="flex gap-5 flex-col text-sm sm:text-base ">
-        <a className='hover:text-red-500 ' href="#"><span><i class="ri-arrow-right-double-line"></i></span> Twitter <span><i class="ri-twitter-x-line"></i></span></a>
-        <a className='hover:text-red-500' href="https://www.linkedin.com/in/rohit-juyal-917aa0270/"><span><i class="ri-arrow-right-double-line"></i></span>Linkedin <span><i class="ri-linkedin-box-line"></i></span></a>
-        <a className='hover:text-red-500' href=""><span><i class="ri-arrow-right-double-line"></i></span>YouTube <span><i class="ri-youtube-line"></i></span></a>
-        <a className='hover:text-red-500' href=""><span><i class="ri-arrow-right-double-line"></i></span>Instagram <span><i class="ri-instagram-line"></i></span></a>
+      <h4 className=" font-normal mb-6 sm:font-semibold">Connect With Us</h4>
+      <div className="flex gap-5 flex-col text-sm sm:text-base ">
+        <a className='hover:text-red-500 ' href="#"><span><i className="ri-arrow-right-double-line"></i></span> Twitter <span><i className="ri-twitter-x-line"></i></span></a>
+        <a className='hover:text-red-500' href="https://www.linkedin.com/in/rohit-juyal-917aa0270/"><span><i className="ri-arrow-right-double-line"></i></span>Linkedin <span><i className="ri-linkedin-box-line"></i></span></a>
+        <a className='hover:text-red-500' href=""><span><i className="ri-arrow-right-double-line"></i></span>YouTube <span><i className="ri-youtube-line"></i></span></a>
+        <a className='hover:text-red-500' href=""><span><i className="ri-arrow-right-double-line"></i></span>Instagram <span><i className="ri-instagram-line"></i></span></a>
       </div>
     </div>
 
     <div className=' absolute top-74 sm:top-12 sm:left-[90%] left-2 sm:right-16 text-white'>
-      <h4 class=" font-normal mb-6 sm:font-semibold">Quick Links</h4>
-      <div class="flex gap-4 flex-col text-sm sm:text-base">
-        <Link to={'/'} className='hover:text-red-500 ' href=""><span><i class="ri-arrow-right-double-line"></i></span> Home </Link>
-        <Link to={'/about'} className='hover:text-red-500' href=""><span><i class="ri-arrow-right-double-line"></i></span>About Us </Link>
-        <Link to={'/courses'} className='hover:text-red-500' href=""><span><i class="ri-arrow-right-double-line"></i></span>Courses</Link>
-        <Link to={'/contact'} className='hover:text-red-500' href=""><span><i class="ri-arrow-right-double-line"></i></span>Contact</Link>
+      <h4 className=" font-normal mb-6 sm:font-semibold">Quick Links</h4>
+      <div className="flex gap-4 flex-col text-sm sm:text-base">
+        <Link to={'/'} className='hover:text-red-500 ' href=""><span><i className="ri-arrow-right-double-line"></i></span> Home </Link>
+        <Link to={'/about'} className='hover:text-red-500' href=""><span><i className="ri-arrow-right-double-line"></i></span>About Us </Link>
+        <Link to={'/courses'} className='hover:text-red-500' href=""><span><i className="ri-arrow-right-double-line"></i></span>Courses</Link>
+        <Link to={'/contact'} className='hover:text-red-500' href=""><span><i className="ri-arrow-right-double-line"></i></span>Contact</Link>
       </div>
     </div>
     

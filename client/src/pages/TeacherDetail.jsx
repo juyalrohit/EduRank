@@ -76,7 +76,7 @@ const data = [
     className='w-full  pb-5 sm:mt-22'>
 
         <div onClick={goBack} className='fixed sm:top-24 top-14 sm:right-4 right-3 z-99 text-xl cursor-pointer transform hover:bg-red-600 '>
-            <i class="ri-close-large-line"></i>
+            <i className="ri-close-large-line"></i>
         </div>
 
         <button  onClick={()=>naviGate(`/RateTeacher/${Id}`)} 
@@ -161,7 +161,7 @@ const data = [
 
         <div className="flex justify-between items-center cursor-pointer border-b pb-3 p-2" onClick={()=> setisExpanded(!isExpanded)}>
         <h2 className="text-xl font-semibold">Student Feedbacks</h2>
-        <span className="text-lg">{isExpanded ? <i class="ri-arrow-up-wide-fill"></i> : <i class="ri-arrow-down-wide-line"></i>}</span>
+        <span className="text-lg">{isExpanded ? <i className="ri-arrow-up-wide-fill"></i> : <i className="ri-arrow-down-wide-line"></i>}</span>
         </div>
         {
             isExpanded && (
