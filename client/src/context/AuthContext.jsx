@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [teachers, setteachers] = useState([]);
   const [userData, setUserData] = useState("")
 
-  const backendURL = 'http://localhost:3000';
+  const backendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 
   console.log("backendURL", backendURL)
 
