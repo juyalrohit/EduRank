@@ -13,21 +13,17 @@ export const AuthProvider = ({ children }) => {
   const [teachers, setteachers] = useState([]);
   const [userData, setUserData] = useState("")
 
-  const backendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-  console.log("backendURL", backendURL)
-
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
  //Get User Details
-  const getUserData = async()=>{
-      try {
-        const {data} = await axios.get(backendURL+'/user/get-user',{withCredentials:true});
-        setUserData(data);
-        
-      } catch (error) {
-        toast.error(error.message);
-      }
+  async function getUserData() {
+    try {
+      const { data } = await axios.get(backendURL + '/user/get-user', { withCredentials: true });
+      setUserData(data);
+
+    } catch (error) {
+      toast.error(error.message);
+    }
   }
 
   // Check User Auth Status
