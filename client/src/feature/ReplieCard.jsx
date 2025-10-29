@@ -8,6 +8,7 @@ const ReplieCard = ({id}) => {
 
     const [reply,setReply] = useState(null);
     const [loading, setloading] = useState(true)
+    const {backendURL} = useAuth();
 
    
 
@@ -15,7 +16,7 @@ const ReplieCard = ({id}) => {
      const getReply = async()=>{
 
       try {
-        const {data} = await axios.post('http://localhost:3000/reply/get-reply',{id});
+        const {data} = await axios.post(backendURL + '/reply/get-reply',{id});
 
         if(data.success){
           setReply(data.reply);
@@ -54,7 +55,6 @@ const ReplieCard = ({id}) => {
     if (reply) {
       setlikes(reply.like?.length || 0);
       setdislikes(reply.unlike?.length || 0);
-      console.log(reply.like.includes(userData._id));
 
       setIsLiked(reply.like.includes(userData._id));
       setIsDisliked(reply.unlike.includes(userData._id));
@@ -99,11 +99,11 @@ const ReplieCard = ({id}) => {
           
         axios.defaults.withCredentials=true;
         try {
-          const {data} = await axios.put("http://localhost:3000/reply/update-like", {replyId,isLiked});
+          const {data} = await axios.put(backendURL + "/reply/update-like", {replyId,isLiked});
 
           if(data.success){
              setIsLiked(!isLiked);
-             console.log(data.likes);
+
              setlikes(data.likes);
           }
           else{
@@ -130,7 +130,7 @@ const ReplieCard = ({id}) => {
       axios.defaults.withCredentials = true;
 
       try {
-        const {data} = await axios.put("http://localhost:3000/reply/update-dislike", {replyId, isDisliked})
+        const {data} = await axios.put(backendURL + "/reply/update-dislike", {replyId, isDisliked})
 
         if(data.success){
           setIsDisliked(!isDisliked);
