@@ -7,12 +7,14 @@ import ReplieCard from "./ReplieCard";
 import ConfirmationDialog from './ConfirmationDialog'
 
 
+
 const ReviewCard = ({ review }) => {
    const {isAuthenticated,userData} = useAuth();
   const [isClick, setisClick] = useState(false);
+  const {backendURL} = useAuth();
   
   const [comment, setcomment] = useState(review.comment);
-  console.log(review)
+  
 
   const [likes, setLikes] = useState(review.upVote.length || 0);
   const [dislikes, setDislikes] = useState(review.downVote.length || 0);
@@ -35,7 +37,7 @@ const ReviewCard = ({ review }) => {
 
 
 
-  console.log(review);
+
   
 
     let bgColor = 'bg-orange-400'; // Default
@@ -48,13 +50,6 @@ const ReviewCard = ({ review }) => {
       bgColor = 'bg-green-400';
     }
  
-
-//get userData
-
-
-
-
-
 
 const reportuserData = ()=>{
    if(isAuthenticated){
@@ -70,7 +65,7 @@ const reportuserData = ()=>{
 const deleteComment = async()=>{
  
   try{
-    const res = await axios.delete(`http://localhost:3000/review/delete-review/${review._id}`,{withCredentials:true});
+    const res = await axios.delete(backendURL + `/review/delete-review/${review._id}`,{withCredentials:true});
     toast.success("Deleted!");
     setTimeout(()=>{
       window.location.reload();
@@ -92,7 +87,7 @@ const handleUpdate = async(e)=>{
    e.preventDefault();
 
   try{
-     const res = await axios.put(`http://localhost:3000/review/update-comment/${review._id}`,{comment},{withCredentials:true});
+     const res = await axios.put(backendURL + `/review/update-comment/${review._id}`,{comment},{withCredentials:true});
      toast.success("Updated. Refresh to see update.");
 
   }
@@ -115,7 +110,7 @@ const handleReply = async(e)=>{
   }
   try {
 
-    const {data} = await axios.post('http://localhost:3000/reply/reply-comment',{reply,reviewId},{withCredentials:true});
+    const {data} = await axios.post(backendURL + '/reply/reply-comment',{reply,reviewId},{withCredentials:true});
 
     if(data.success){
       setwriteReply(!writeReply)
@@ -147,7 +142,7 @@ const handleReply = async(e)=>{
 
     try {
 
-      const {data} = await axios.put('http://localhost:3000/review/like',{reviewId,isLiked});
+      const {data} = await axios.put(backendURL + '/review/like',{reviewId,isLiked});
 
       if(data.success){
         setIsLiked(!isLiked);
@@ -175,7 +170,7 @@ const handleReply = async(e)=>{
     
     try {
 
-      const {data} = await axios.put('http://localhost:3000/review/dislike',{reviewId,isDisliked});
+      const {data} = await axios.put(backendURL + '/review/dislike',{reviewId,isDisliked});
 
       if(data.success){
         setDislikes(data.dislikes)
