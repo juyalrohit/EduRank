@@ -144,6 +144,8 @@ router.post('/send-password-otp',async(req,res)=>{
      //Math.floor(MIN + Math.random() * (MAX - MIN + 1))
      // 6 digit Max Number 999999 and minimum 100000 range (99999-10000 + 1) = 900000
 
+     console.log("Ok Request came here")
+
      user.resetOtp = otp;
      user.resetOtpExpireAt = Date.now()* 15 * 60 * 1000;
      await user.save();
@@ -154,8 +156,12 @@ router.post('/send-password-otp',async(req,res)=>{
           subject: "Your EduRank Password Reset OTP (Valid for 10 Minutes)",
           html : RESET_OTP.replace('[OTP]',otp).replace("[User's First Name]",user.name)
      }
+    
+     console.log("WE are ready to send message");
 
      await Transpoter.sendMail(mailOption);
+
+     console.log("Do we reach");
     
      return res.json({success:true,message:"OTP sent to your email!"})
    
