@@ -32,12 +32,12 @@ router.post('/register-user', async (req, res) => {
       const user = await userModel.create({ name, email, password : hashPasswordValue });
       const token = generateToken(user);
   
-      res.cookie('token', token, {
+       res.cookie("token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
-        maxAge: 7 * 24 * 60 * 60 * 1000, 
-      });
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000
+       });
 
       const mailHtml = WELCOMING_TEMPLATE
       .replace("[User's First Name]",name ) // if you have the user's first name
@@ -80,12 +80,12 @@ router.post('/login-user', async(req,res)=>{
         const token = generateToken(user);
 
        
-        res.cookie('token', token, {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
-          maxAge: 7 * 24 * 60 * 60 * 1000, 
-      });
+        res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000
+       });
 
 
         res.status(200).json({success:true,message:'Logged In '});
