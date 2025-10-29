@@ -10,7 +10,7 @@ const { populate } = require('dotenv');
 router.post('/create-teacher', upload.single('picture'), async (req, res) => {
     try {
         const { name, email, position, departmentName,phone, picture } = req.body;
-        // const picture = req.file ? `/uploads/${req.file.filename}` : null; // ✅ FIXED
+      
         
         // Find department
         const department = await departmentModel.findOne({ name: departmentName });
@@ -26,11 +26,10 @@ router.post('/create-teacher', upload.single('picture'), async (req, res) => {
             phone
         });
         
-        // Push teacher ID to department (fix key name if it's 'teachers')
-        department.teacher.push(newTeacher._id); // ✅ FIXED
-        await department.save(); // ✅ Save changes
+        department.teacher.push(newTeacher._id);
+        await department.save(); 
         
-        // Return created teacher data
+        
         res.status(200).json({ message: "Teacher is created", teacher: newTeacher }); // ✅ FIXED
     } catch (error) {
         console.error("Error creating teacher:", error);
