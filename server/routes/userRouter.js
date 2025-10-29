@@ -73,14 +73,20 @@ router.post('/login-user', async(req,res)=>{
 
         if (!user) return res.json({success:false,message:"Email or password is wrong!"});
 
-        // ✅ Fixing the order
+       
         const result = await bcrypt.compare(password, user.password);
         if (!result) return res.json({success:false,message:"Email or password is wrong!"});
 
         const token = generateToken(user);
 
-        // ✅ Setting cookie
-        res.cookie('token', token, { httpOnly: true, secure: true }); 
+       
+        res.cookie('token', token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
+          maxAge: 7 * 24 * 60 * 60 * 1000, 
+      });
+
 
         res.status(200).json({success:true,message:'Logged In '});
     } catch (error) {
