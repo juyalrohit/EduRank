@@ -68,7 +68,6 @@ const getColorBasedOnRating = (rating) => {
 const getAvgRating = (reviews)=>{
   const avgRating = reviews.reduce((sum, r) => sum + Number(r.overallRating), 0) / reviews.length;
   const roundedRating = Math.round(avgRating*10)/10;
-  console.log("Avg Rating:", roundedRating);
   return roundedRating;
 }
 

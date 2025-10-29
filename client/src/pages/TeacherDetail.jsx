@@ -7,6 +7,7 @@ import College from '../assets/maxresdefault.jpg'
 import Lottie from 'lottie-react';
 import LoadingAnimation from '../animation/loading.json'
 import {motion} from 'framer-motion'
+import { useAuth } from '../context/AuthContext';
 
 
 
@@ -16,6 +17,7 @@ const TeacherDetail = () => {
     const [isExpanded, setisExpanded] = useState(false);
     const [teacher, setteacher] = useState();
     const [loading, setloading] = useState(true);
+    const {backendURL} = useAuth();
 
 
   
@@ -24,7 +26,7 @@ const TeacherDetail = () => {
 
       const fetchDepartment = async()=>{
          try{
-            const res = await axios.get(`http://localhost:3000/teacher/get-teacher/${Id}`);
+            const res = await axios.get(backendURL + `/teacher/get-teacher/${Id}`);
             setteacher(res.data);
 
         }
@@ -132,11 +134,11 @@ const data = [
             <BarChart data={data}>
               
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />           // Shows 'Subject Knowledge', etc.
-              <YAxis domain={[0, 10]} />         // Y-axis ranges from 0 to 10
-              <Tooltip />                        // Shows tooltip on hover
+              <XAxis dataKey="name" />         .
+              <YAxis domain={[0, 10]} />        
+              <Tooltip />                        
               <Bar 
-                dataKey="rating"                 // Each bar shows the average rating
+                dataKey="rating"                 
                   // Purple-ish color
                 radius={[10, 10, 0, 0]} >
                   {
