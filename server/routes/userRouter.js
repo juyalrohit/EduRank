@@ -6,9 +6,9 @@ const jwt = require('jsonwebtoken');
 const generateToken = require('../utils/genrateToken');
 const bcrypt = require('bcrypt');
 const { isLoggedIn } = require('../middleware/isLoggedIn');
-const Transpoter = require('../config/nodemailer-transproter')
 const {WELCOMING_TEMPLATE, RESET_OTP} = require('../config/emailTemplates');
-const reviewModel = require('../models/review-model');
+const {Resend} = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post('/register-user', async (req, res) => {
     const { name, email, password } = req.body;
@@ -45,14 +45,18 @@ router.post('/register-user', async (req, res) => {
     
      
     
-    const mailOption = {
-      from: process.env.SENDER_EMAIL,
+    const { data, error } = await resend.emails.send({
+      from: "onboarding@resend.dev", // must be verified domain or Resend domain
       to: email,
       subject: 'Welcome to EduRank 🎉',
       html: mailHtml,
-    };
+    });
+
+     if (error) {
+       return res.status(500).json({success:false, message:"Internal Server Error"});
+    } 
     
-     await Transpoter.sendMail(mailOption);
+    
     
       res.status(201).json({ success: true, message: "Sign Up Successfully" });
   
@@ -150,25 +154,23 @@ router.post('/send-password-otp',async(req,res)=>{
      //Math.floor(MIN + Math.random() * (MAX - MIN + 1))
      // 6 digit Max Number 999999 and minimum 100000 range (99999-10000 + 1) = 900000
 
-     console.log("Ok Request came here")
+
 
      user.resetOtp = otp;
      user.resetOtpExpireAt = Date.now()* 15 * 60 * 1000;
      await user.save();
 
-     const mailOption = {
-          from : process.env.SENDER_EMAIL,
+     const {data ,error} = await resend.emails.send({
+          from : "onboarding@resend.dev",
           to : email,
           subject: "Your EduRank Password Reset OTP (Valid for 10 Minutes)",
           html : RESET_OTP.replace('[OTP]',otp).replace("[User's First Name]",user.name)
-     }
-    
-     console.log("WE are ready to send message");
+     })
 
-     await Transpoter.sendMail(mailOption);
+      if (error) {
+       return res.status(500).json({success:false, message:"Internal Server Error"});
+    } 
 
-     console.log("Do we reach");
-    
      return res.json({success:true,message:"OTP sent to your email!"})
    
     
