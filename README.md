@@ -12,7 +12,7 @@ EduRank is personal college review rating system, where student can view teacher
 - **Frontend:** React.js (with Vite), Tailwind CSS
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB with Mongoose
-- **Auth:** JWT
+- **Auth:** JWT , Bycrpt , nodemailer , resend
 
 
 
