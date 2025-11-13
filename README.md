@@ -16,7 +16,7 @@ EduRank is personal college review rating system, where student can view teacher
 
 
 
-## 📦 Setup
+## 📦 Setu
 
 ```bash
 # Install backend dependencies
