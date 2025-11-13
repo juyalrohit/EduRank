@@ -13,11 +13,8 @@ import Contact from './pages/Contact';
 import DepartmentDetail from './pages/DepartmentDetail';
 import Login from './pages/Login';
 
-
-
 import Course from './pages/Course';
 import SendEmail from './pages/SendEmail';
-import axios  from 'axios';
 
 import RateDepartment from './pages/RateDepartment';
 
